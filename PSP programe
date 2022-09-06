@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include<conio.h>
+#include <math.h>
+#include<stdlib.h>
+
+void main ()
+
+{
+    int i;
+  float v0,theta,v0y,y,theta0,t,vx,vy,v,sum=0;
+  double theta_v,theta_v1;
+  double a, b, c, discriminant, root1, root2, realPart,          imagPart;
+clrscr();
+ printf ("Enter the initial velocity of the cannon ball");
+  scanf ("%f", &v0);
+  printf ("Enter the angle of projection of cannon ball");
+  scanf ("%f", &theta);
+   printf("Enter the height of the armory house above the sea level");
+  scanf("%f",&y);
+  theta0=((theta*3.14)/180);
+  v0y=((v0)*sin(theta0));
+    a=4.90;
+    b=(-v0y);
+    c=y;
+ discriminant = b * b - 4 * a * c;
+    // condition for real and different roots
+    if (discriminant > 0) 
+    {
+        root1 = (-b + sqrt(discriminant)) / (2 * a);
+        root2 = (-b - sqrt(discriminant)) / (2 * a);
+        printf("\n root1 = %.2lf and root2 = %.2lf", root1, root2);
+    }
+
+    // condition for real and equal roots
+    else if (discriminant == 0) {
+        root1 = root2 = -b / (2 * a);
+        printf("\n root1 = root2 = %.2lf;", root1);
+    }
+ // if roots are not real
+    else {
+        realPart = -b / (2 * a);
+        imagPart = sqrt(-discriminant) / (2 * a);
+        printf("\nroot1 = %.2lf+%.2lfi and root2 = %.2f-%.2fi", realPart, imagPart, realPart, imagPart);
+        printf("The root is imaginary number");
+    exit(0);
+    }
+      t=root1;
+      printf("\n The time taken by the cannon ball to hit the armory house is %f",t);
+     
+ vx=v0*cos(theta0);
+      printf("\nvx= %f",vx);
+ vy=v0y-(9.8*t);
+      printf("\nvy= %f",vy);
+ 
+  v=sqrt(pow(vx,2)+pow(vy,2));
+    printf("\n The magnitude of the final velocity at which the cannon ball strikes the armory house is %f",v);
+     
+     theta_v1=atan(vy/vx);
+    
+    theta_v=theta_v1*(180/3.142);
+     printf("\n The angle of the impact at armory house is %f ",theta_v);
+   if(theta_v>0)
+    {
+        printf("\n the angle of impact at armory house is above the horizon")
+  }
+    
+    if(theta_v<0)
+    {
+        printf("\n the angle of impact is below the horizon");
+    }
+    
+    /*the minimun force required to destroy the armory house is the 
+    multiple of the velocity of 
+    individual cannon ball until it reaches 206m/s  */
+    for(i=1;sum<206;i++)
+    {
+        sum=i*v;
+    }
+        
+    printf("\nthe number of times cannon ball should hit to destroy the armory house is %d",(i-1));
+getch();
+   }
