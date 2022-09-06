@@ -1,16 +1,14 @@
-#include <stdio.h>
-#include<conio.h>
-#include <math.h>
+#include<stdio.h>
+#include<math.h>
 #include<stdlib.h>
 
-void main ()
+void main()
 
 {
     int i;
   float v0,theta,v0y,y,theta0,t,vx,vy,v,sum=0;
   double theta_v,theta_v1;
-  double a, b, c, discriminant, root1, root2, realPart,          imagPart;
-clrscr();
+  double a,b,c,discriminant,root1,root2,realPart,imagPart;
  printf ("Enter the initial velocity of the cannon ball");
   scanf ("%f", &v0);
   printf ("Enter the angle of projection of cannon ball");
@@ -41,7 +39,7 @@ clrscr();
         realPart = -b / (2 * a);
         imagPart = sqrt(-discriminant) / (2 * a);
         printf("\nroot1 = %.2lf+%.2lfi and root2 = %.2f-%.2fi", realPart, imagPart, realPart, imagPart);
-        printf("The root is imaginary number");
+        printf("\nThe root is imaginary number");
     exit(0);
     }
       t=root1;
@@ -61,7 +59,7 @@ clrscr();
      printf("\n The angle of the impact at armory house is %f ",theta_v);
    if(theta_v>0)
     {
-        printf("\n the angle of impact at armory house is above the horizon")
+        printf("\n the angle of impact at armory house is above the horizon");
   }
     
     if(theta_v<0)
@@ -78,5 +76,4 @@ clrscr();
     }
         
     printf("\nthe number of times cannon ball should hit to destroy the armory house is %d",(i-1));
-getch();
    }
